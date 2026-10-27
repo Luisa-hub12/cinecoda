@@ -14,7 +14,7 @@ public class FichierDCP implements SupportFilm {
         this.dateExpirationCle = dateExpirationCle;
     }
 
-    @Override;
+    @Override
     public Film getFilm() {
         return film;
     }

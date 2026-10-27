@@ -2,6 +2,7 @@ package cine.Salle;
 
 import cine.CineCodaException;
 import cine.EtatSalle;
+import cine.Projecteur.Projecteur;
 
 public class Salle {
     private final int numero;

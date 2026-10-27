@@ -11,13 +11,11 @@ public class Main {
     public static void main(String[] args) {
         log = ConsoleLogger.create("cine.scenario");
 
-        public static void main (String[]args){
-            System.out.println("=================================================");
-            System.out.println("      DEMONSTRATION SYSTEME CINEMA CINÉCODA       ");
-            System.out.println("=================================================\n");
+        System.out.println("=================================================");
+        System.out.println("      DEMONSTRATION SYSTEME CINEMA CINÉCODA       ");
+        System.out.println("=================================================\n");
 
-            // Initialisation du Cinéma
-            Cinema cineCoda = new Cinema("CinéCoda");
-        }
+        // Initialisation du Cinéma
+        Cinema cineCoda = new Cinema("CinéCoda");
     }
 }
