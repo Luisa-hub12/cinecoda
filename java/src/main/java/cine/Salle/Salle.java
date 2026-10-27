@@ -60,4 +60,9 @@ public class Salle {
         }
         this.etat = EtatSalle.LIBRE;
     }
+
+    @Override
+    public String toString() {
+        return "Salle " + numero + " : " + capacite + " places, " + projecteur;
+    }
 }
