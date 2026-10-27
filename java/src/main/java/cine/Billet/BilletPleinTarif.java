@@ -5,4 +5,9 @@ public class BilletPleinTarif extends Billet {
     public double calculerPrix(double tarifDeBase) {
         return tarifDeBase;
     }
+
+    @Override
+    public String getLibelle() {
+        return "Billet plein tarif";
+    }
 }

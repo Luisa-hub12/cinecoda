@@ -5,4 +5,9 @@ public class BilletEtudiant extends Billet {
     public double calculerPrix(double tarifDeBase) {
         return tarifDeBase * 0.75; // -25%
     }
+
+    @Override
+    public String getLibelle() {
+        return "Billet étudiant";
+    }
 }

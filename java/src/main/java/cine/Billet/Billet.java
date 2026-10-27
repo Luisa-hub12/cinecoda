@@ -2,9 +2,9 @@ package cine.Billet;
 
 public abstract class Billet {
     public abstract double calculerPrix(double tarifDeBase);
-}
+    public abstract String getLibelle();
 
-@Override
-public String toString() {
-    return billet + "vendu :" + tarifDeBase;
+    public String formaterVente(double tarifDeBase) {
+        return String.format(java.util.Locale.FRANCE, "%s vendu : %.2f €", getLibelle(), calculerPrix(tarifDeBase));
+    }
 }

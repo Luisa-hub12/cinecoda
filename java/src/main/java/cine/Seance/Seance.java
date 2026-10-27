@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public class Seance {
     private final Salle salle;
@@ -46,12 +47,12 @@ public class Seance {
     }
 
     // B2 : Vendre un billet
-    public void vendreBillet(Billet billet) {
+    public String vendreBillet(Billet billet) {
         if (billetsVendus.size() >= salle.getCapacite()) {
-            throw new CineCodaException("Vente refusée : la salle "
-                    + salle.getNumero() + " est complète (" + salle.getCapacite() + " places).");
+            throw new CineCodaException("Vente refusée : la séance est complète (" + salle.getCapacite() + " places)");
         }
         billetsVendus.add(billet);
+        return String.format(Locale.FRANCE, "%s vendu : %.2f €", billet.getLibelle(), billet.calculerPrix(tarifDeBase));
     }
 
     // B3 : Démarre la séance

@@ -1,5 +1,8 @@
 package cine;
 
+import cine.Billet.BilletEnfant;
+import cine.Billet.BilletEtudiant;
+import cine.Billet.BilletPleinTarif;
 import cine.Film.Copie35mm;
 import cine.Film.FichierDCP;
 import cine.Film.Film;
@@ -11,6 +14,7 @@ import java.util.logging.Logger;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Locale;
 
 import java.util.stream.Collectors;
 
@@ -44,5 +48,20 @@ public class Main {
         log.info(supportDune.toString());
         log.info(supportAvengers.toString());
         log.info(supportRocky.toString());
+
+        log.info("");
+
+        log.info("=== 3. Dune 3 en Salle 1 le 15/10/2026 (tarif de base 10,00 €) ===");
+        var seanceDune = cineCoda.programmerSeance(1, supportDune, LocalDate.of(2026, 10, 15), 10.0);
+        var billet1 = new BilletPleinTarif();
+        var billet2 = new BilletEtudiant();
+        var billet3 = new BilletEnfant();
+        log.info(seanceDune.vendreBillet(billet1));
+        log.info(seanceDune.vendreBillet(new BilletPleinTarif()));
+        log.info(seanceDune.vendreBillet(billet2));
+        log.info(seanceDune.vendreBillet(billet3));
+        log.info("Places restantes : " + seanceDune.getPlacesRestantes());
+        log.info("Taux de remplissage : " + (int) seanceDune.getTauxRemplissage() + " %");
+        log.info(String.format(Locale.FRANCE, "Recette : %.2f €", seanceDune.getRecette()));
     }
 }

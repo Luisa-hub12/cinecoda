@@ -5,4 +5,9 @@ public class BilletEnfant extends Billet {
     public double calculerPrix(double tarifDeBase) {
         return 5.0; // 5 € fixe
     }
+
+    @Override
+    public String getLibelle() {
+        return "Billet enfant";
+    }
 }
