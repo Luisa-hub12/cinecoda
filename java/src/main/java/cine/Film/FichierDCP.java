@@ -40,4 +40,9 @@ public class FichierDCP implements SupportFilm {
         }
         return "Support compatible.";
     }
+
+    @Override
+    public String toString() {
+        return film + " : fichier numérique, clé valable jusqu'au " + dateExpirationCle.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    }
 }

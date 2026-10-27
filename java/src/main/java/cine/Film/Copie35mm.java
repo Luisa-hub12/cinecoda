@@ -48,4 +48,9 @@ public class Copie35mm implements SupportFilm {
         }
         return "Support compatible.";
     }
+
+    @Override
+    public String toString() {
+        return film + " : copie 35 mm, " + nombreProjections + " projections";
+    }
 }

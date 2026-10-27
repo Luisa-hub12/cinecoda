@@ -16,4 +16,9 @@ public class Film {
     public int getDureeMinutes() {
         return dureeMinutes;
     }
+
+    @Override
+    public String toString() {
+        return titre + " (" + dureeMinutes + " min)";
+    }
 }
