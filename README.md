@@ -132,6 +132,8 @@ Chaque comportement métier de la section 2.6 doit être porté par une **métho
 >
 > **Faites des micro-commits** : un commit à chaque petit pas (une notion du glossaire, une classe, une règle, une étape du scénario), avec un message explicite. Votre historique git doit permettre de suivre l'évolution de votre réflexion. Il est évalué.
 
+- Après avoir remarqué que je n'avais pas le bon readme avec toutes les consignes (je n'avais pas fait de pull), j'ai fait des gros commit jusqu'à l'étape 6, pas forcément en détail de toutes mes erreurs, je ferais donc des commit detaillés pour la suite.
+
 Le barème détaillé est dans [BAREME.md](BAREME.md).
 
 Un point d'étape est prévu après **45 minutes** : vous présenterez votre diagramme de classes à un autre binôme avant de commencer à coder.
