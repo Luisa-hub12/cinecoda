@@ -60,14 +60,15 @@ public class Seance {
         if (demarree) {
             throw new CineCodaException("La séance a déjà été démarrée.");
         }
+        if (!salle.estLibre()) {
+            throw new CineCodaException("Démarrage refusé : la Salle " + salle.getNumero()
+                    + " n'est pas libre (état : " + salle.getEtat() + ")");
+        }
         if (!support.estLisiblePar(salle.getProjecteur(), date)) {
             String raison = support.getRaisonIncompatibilite(salle.getProjecteur(), date);
             throw new CineCodaException("Démarrage refusé : " + raison);
         }
-        if (!salle.estLibre()) {
-            throw new CineCodaException("Démarrage refusé : la Salle" + salle.getNumero()
-            + " n'est pas libre (état : " + salle.getEtat() + ")");
-        }
+
         salle.demarrerSeance();
         this.demarree = true;
         return "Séance démarrée";

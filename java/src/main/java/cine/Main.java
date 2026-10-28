@@ -115,5 +115,10 @@ public class Main {
 
         log.info("=== 7. I Play Rocky en Salle 2 le 15/10/2026 (tarif de base 8,00 €) ===");
         var seanceRocky3 = cineCoda.programmerSeance(2, supportRocky, LocalDate.of(2026, 10, 15), 8.0);
+        try {
+            seanceRocky3.demarrer();
+        } catch (CineCodaException e) {
+            log.info(e.getMessage());
+        }
     }
 }
