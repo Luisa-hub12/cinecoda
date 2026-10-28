@@ -64,6 +64,10 @@ public class Seance {
             String raison = support.getRaisonIncompatibilite(salle.getProjecteur(), date);
             throw new CineCodaException("Démarrage refusé : " + raison);
         }
+        if (!salle.estLibre()) {
+            throw new CineCodaException("Démarrage refusé : la Salle" + salle.getNumero()
+            + " n'est pas libre (état : " + salle.getEtat() + ")");
+        }
         salle.demarrerSeance();
         this.demarree = true;
         return "Séance démarrée";

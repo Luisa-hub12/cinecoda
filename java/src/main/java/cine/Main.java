@@ -110,5 +110,10 @@ public class Main {
                         .collect(Collectors.joining(", "));
         log.info("Salles libres : " + sallesLibres);
         log.info("Projections de la copie de « " + supportRocky.getFilm().getTitre() + " » : " + supportRocky.getNombreProjections());
+
+        log.info("");
+
+        log.info("=== 7. I Play Rocky en Salle 2 le 15/10/2026 (tarif de base 8,00 €) ===");
+        var seanceRocky3 = cineCoda.programmerSeance(2, supportRocky, LocalDate.of(2026, 10, 15), 8.0);
     }
 }
