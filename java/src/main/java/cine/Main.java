@@ -63,5 +63,26 @@ public class Main {
         log.info("Places restantes : " + seanceDune.getPlacesRestantes());
         log.info("Taux de remplissage : " + (int) seanceDune.getTauxRemplissage() + " %");
         log.info(String.format(Locale.FRANCE, "Recette : %.2f €", seanceDune.getRecette()));
+
+        log.info("");
+
+        log.info("=== 4. Avengers: Doomsday en Salle 1 le 15/10/2026 (tarif de base 10,00 €) ===");
+        var seanceAvengers = cineCoda.programmerSeance(1, supportAvengers, LocalDate.of(2026, 10, 15), 10.0);
+        try {
+            seanceAvengers.demarrer();
+        } catch (CineCodaException e) {
+            log.info(e.getMessage());
+        }
+
+        log.info("");
+
+        log.info("=== 5. I Play Rocky en Salle 1 le 15/10/2026 (tarif de base 10,00 €) ===");
+        var seanceRocky = cineCoda.programmerSeance(1, supportRocky, LocalDate.of(2026, 10, 15), 10.0);
+        try {
+            seanceRocky.demarrer();
+        } catch (CineCodaException e) {
+            log.info(e.getMessage());
+        }
+        log.info("État de la Salle " + salle1.getNumero() + " : " + salle1.getEtat());
     }
 }
