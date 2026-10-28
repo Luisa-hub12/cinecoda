@@ -42,19 +42,19 @@ public class Salle {
             throw new CineCodaException("Impossible de démarrer la séance : la salle "
                     + numero + " n'est pas libre (État actuel : " + etat.getLibelle() + ").");
         }
-        this.etat = EtatSalle.EN_SEANCE;
+        this.etat = EtatSalle.SEANCE;
     }
 
     public void terminerSeance() {
-        if (this.etat != EtatSalle.EN_SEANCE) {
+        if (this.etat != EtatSalle.SEANCE) {
             throw new CineCodaException("Impossible de terminer la séance : la salle "
                     + numero + " n'est pas en séance.");
         }
-        this.etat = EtatSalle.EN_NETTOYAGE;
+        this.etat = EtatSalle.NETTOYAGE;
     }
 
     public void terminerNettoyage() {
-        if (this.etat != EtatSalle.EN_NETTOYAGE) {
+        if (this.etat != EtatSalle.NETTOYAGE) {
             throw new CineCodaException("Impossible de terminer le nettoyage : la salle "
                     + numero + " n'est pas en nettoyage (État actuel : " + etat.getLibelle() + ").");
         }

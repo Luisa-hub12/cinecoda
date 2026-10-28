@@ -4,6 +4,7 @@ import cine.Projecteur.Projecteur;
 import cine.Projecteur.ProjecteurNumerique;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class FichierDCP implements SupportFilm {
     private final Film film;
@@ -36,13 +37,16 @@ public class FichierDCP implements SupportFilm {
             return "Le fichier DCP nécessite un projecteur numérique.";
         }
         if (dateSeance.isAfter(dateExpirationCle)) {
-            return "La clé de lecture du DCP a expiré le " + dateExpirationCle + ".";
+            return "la clé de lecture de « "
+                    + film.getTitre()
+                    + " » a expiré le "
+                    +dateExpirationCle.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         }
         return "Support compatible.";
     }
 
     @Override
     public String toString() {
-        return film + " : fichier numérique, clé valable jusqu'au " + dateExpirationCle.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        return film + " : fichier numérique, clé valable jusqu'au " + dateExpirationCle.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 }

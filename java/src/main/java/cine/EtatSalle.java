@@ -2,8 +2,8 @@ package cine;
 
 public enum EtatSalle {
     LIBRE("Libre et propre"),
-    EN_SEANCE("En séance"),
-    EN_NETTOYAGE("En nettoyage");
+    SEANCE("En séance"),
+    NETTOYAGE("En nettoyage");
 
     private final String libelle;
 

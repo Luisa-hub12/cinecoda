@@ -56,21 +56,21 @@ public class Seance {
     }
 
     // B3 : Démarre la séance
-    public void demarrer() {
+    public String demarrer() {
         if (demarree) {
             throw new CineCodaException("La séance a déjà été démarrée.");
         }
         if (!support.estLisiblePar(salle.getProjecteur(), date)) {
             String raison = support.getRaisonIncompatibilite(salle.getProjecteur(), date);
-            throw new CineCodaException("Refus de démarrage de séance dans la salle "
-                    + salle.getNumero() + " : " + raison);
+            throw new CineCodaException("Démarrage refusé : " + raison);
         }
         salle.demarrerSeance();
         this.demarree = true;
+        return "Séance démarrée";
     }
 
     // B3 : Termine la séance
-    public void terminer() {
+    public String terminer() {
         if (!demarree) {
             throw new CineCodaException("Impossible de terminer une séance non démarrée.");
         }
@@ -80,6 +80,7 @@ public class Seance {
         salle.terminerSeance();
         support.enregistrerProjection();
         this.terminee = true;
+        return "Séance terminée";
     }
 
     // B4 : Nombre de places restantes

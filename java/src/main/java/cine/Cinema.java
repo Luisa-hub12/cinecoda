@@ -27,11 +27,11 @@ public class Cinema {
         return nom;
     }
 
-    // La salle est créée PAR le cinéma (Composition)
+    // La salle est créée PAR le cinéma (Composition).
     public Salle ajouterSalle(int numero, int capacite, Projecteur projecteur) {
         for (Salle s : salles) {
             if (s.getNumero() == numero) {
-                throw new CineCodaException("La salle n° " + numero + " existe déjà.");
+                throw new CineCodaException("La salle n° " + numero + " existe déjà. Veuillez utiliser un autre numéro.");
             }
         }
         Salle salle = new Salle(numero, capacite, projecteur);
@@ -49,7 +49,7 @@ public class Cinema {
             }
         }
         if (salleTrouvee == null) {
-            throw new CineCodaException("Refus : La salle n° " + numeroSalle + " n'appartient pas au cinéma " + nom + ".");
+            throw new CineCodaException("Erreur : La salle n° " + numeroSalle + " n'appartient pas à ce cinéma " + nom + ". Veuillez réessayer !");
         }
 
         Seance seance = new Seance(salleTrouvee, support, date, tarifBase);
@@ -67,6 +67,7 @@ public class Cinema {
         }
         return libres;
     }
+
 
     // B9 : Séances programmées un jour donné
     public List<Seance> getSeancesDuJour(LocalDate date) {

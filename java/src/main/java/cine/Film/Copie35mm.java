@@ -9,7 +9,7 @@ public class Copie35mm implements SupportFilm {
     private final Film film;
     private int nombreProjections;
 
-    public Copie35mm(Film film) {
+    public Copie35mm(Film film, LocalDate localDate) {
         this(film, 0);
     }
 
@@ -41,7 +41,7 @@ public class Copie35mm implements SupportFilm {
     @Override
     public String getRaisonIncompatibilite(Projecteur projecteur, LocalDate dateSeance) {
         if (!(projecteur instanceof ProjecteurArgentique)) {
-            return "La copie 35 mm nécessite un projecteur argentique.";
+            return "une copie 35 mm ne peut pas être lue par un projecteur numérique";
         }
         if (nombreProjections >= 50) {
             return "La copie 35 mm est usée (" + nombreProjections + " projections effectuees / 50 max).";

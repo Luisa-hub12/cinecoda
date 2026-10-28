@@ -42,7 +42,7 @@ public class Main {
         var dune = new Film("Dune 3", 166);
         var supportDune = new FichierDCP(dune, LocalDate.of(2026, 10, 30));
         var avengers = new Film("Avengers: Doomsday", 119);
-        var supportAvengers = new FichierDCP(avengers, LocalDate.of(2026, 10, 14));
+        var supportAvengers = new FichierDCP(avengers, LocalDate.of(2026,10,14));
         var rocky = new Film("I Play Rocky", 103);
         var supportRocky = new Copie35mm(rocky, 49);
         log.info(supportDune.toString());
@@ -62,7 +62,7 @@ public class Main {
         log.info(seanceDune.vendreBillet(billet3));
         log.info("Places restantes : " + seanceDune.getPlacesRestantes());
         log.info("Taux de remplissage : " + (int) seanceDune.getTauxRemplissage() + " %");
-        log.info(String.format(Locale.FRANCE, "Recette : %.2f €", seanceDune.getRecette()));
+        log.info(String.format(Locale.FRANCE, "Recette : %.2f €", seanceDune.getRecette())); // %.2f permet d'afficher 2 chiffres après la virgule, sinon on a 32.5
 
         log.info("");
 
@@ -84,5 +84,31 @@ public class Main {
             log.info(e.getMessage());
         }
         log.info("État de la Salle " + salle1.getNumero() + " : " + salle1.getEtat());
+
+        log.info("");
+
+        log.info("=== 6. I Play Rocky en Salle 2 le 15/10/2026 (tarif de base 8,00 €) ===");
+        var seanceRocky2 = cineCoda.programmerSeance(2, supportRocky, LocalDate.of(2026, 10, 15), 8.0);
+        var billet4 = new BilletEtudiant();
+        var billet5 = new BilletEtudiant();
+        var billet6 = new BilletEtudiant();
+        log.info(seanceRocky2.vendreBillet(billet4));
+        log.info(seanceRocky2.vendreBillet(billet5));
+        log.info(seanceRocky2.vendreBillet(billet6));
+        try {
+            seanceRocky2.vendreBillet(new BilletEtudiant());
+        } catch (CineCodaException e) {
+            log.info(e.getMessage());
+        }
+        log.info("Places restantes : " + seanceRocky2.getPlacesRestantes());
+        log.info("Taux de remplissage : " + (int) seanceRocky2.getTauxRemplissage() + " %");
+        log.info(seanceRocky2.demarrer());
+        log.info(seanceRocky2.terminer());
+        log.info("État de la Salle " + salle2.getNumero() + " : " + salle2.getEtat());
+        sallesLibres = cineCoda.getSallesLibres().stream()
+                        .map(s -> "Salle " + s.getNumero())
+                        .collect(Collectors.joining(", "));
+        log.info("Salles libres : " + sallesLibres);
+        log.info("Projections de la copie de « " + supportRocky.getFilm().getTitre() + " » : " + supportRocky.getNombreProjections());
     }
 }
