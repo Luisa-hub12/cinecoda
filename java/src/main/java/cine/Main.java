@@ -41,7 +41,7 @@ public class Main {
         var dune = new Film("Dune 3", 166);
         var supportDune = new FichierDCP(dune, LocalDate.of(2026, 10, 30));
         var avengers = new Film("Avengers: Doomsday", 119);
-        var supportAvengers = new FichierDCP(avengers, LocalDate.of(2026,10,14));
+        var supportAvengers = new FichierDCP(avengers, LocalDate.of(2026, 10, 14));
         var rocky = new Film("I Play Rocky", 103);
         var supportRocky = new Copie35mm(rocky, 49);
         log.info(supportDune.toString());
@@ -105,8 +105,8 @@ public class Main {
         log.info(seanceRocky2.terminer());
         log.info("État de la Salle " + salle2.getNumero() + " : " + salle2.getEtat());
         sallesLibres = cineCoda.getSallesLibres().stream()
-                        .map(s -> "Salle " + s.getNumero())
-                        .collect(Collectors.joining(", "));
+                .map(s -> "Salle " + s.getNumero())
+                .collect(Collectors.joining(", "));
         log.info("Salles libres : " + sallesLibres);
         log.info("Projections de la copie de « " + supportRocky.getFilm().getTitre() + " » : " + supportRocky.getNombreProjections());
 
@@ -141,12 +141,7 @@ public class Main {
         var dateToday = LocalDate.of(2026, 10, 15);
 
         for (Seance s : cineCoda.getSeancesDuJour(dateToday)) {
-            log.info(String.format(Locale.FRANCE, "%s, Salle %d : %d billet(s), recette %.2f €",
-                    s.getSupport().getFilm().getTitre(),
-                    s.getSalle().getNumero(),
-                    s.getBilletsVendus().size(),
-                    s.getRecette()));
+            log.info(s.toString());
         }
-        log.info(String.format(Locale.FRANCE, "Recette du jour : %.2f €", cineCoda.getRecetteDuJour(dateToday)));
     }
 }

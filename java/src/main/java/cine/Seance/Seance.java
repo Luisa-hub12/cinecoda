@@ -111,4 +111,13 @@ public class Seance {
     public List<Billet> getBilletsVendus() {
         return Collections.unmodifiableList(billetsVendus);
     }
+
+    @Override
+    public String toString() {
+        return String.format(Locale.FRANCE, "%s, Salle %d : %d billet(s), recette %.2f €",
+                support.getFilm().getTitre(),
+                salle.getNumero(),
+                billetsVendus.size(),
+                getRecette());
+    }
 }
