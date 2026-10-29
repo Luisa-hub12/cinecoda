@@ -118,6 +118,6 @@ public class Main {
         } catch (CineCodaException e) {
             log.info(e.getMessage());
         }
-        log.info("Nettoyage de la " + seanceRocky3.getSalle() + salle2.getEtat());
+        log.info(salle2.terminerNettoyage());
     }
 }
