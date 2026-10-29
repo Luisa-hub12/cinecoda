@@ -133,5 +133,9 @@ public class Main {
         } catch (CineCodaException e) {
             log.info(e.getMessage());
         }
+
+        log.info("");
+
+        log.info("=== 9. Bilan du 15/10/2026 ===");
     }
 }
