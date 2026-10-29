@@ -8,12 +8,10 @@ import cine.Film.FichierDCP;
 import cine.Film.Film;
 import cine.Projecteur.ProjecteurArgentique;
 import cine.Projecteur.ProjecteurNumerique;
-import cine.Salle.Salle;
 
 import java.util.logging.Logger;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Locale;
 
 import java.util.stream.Collectors;
@@ -120,5 +118,6 @@ public class Main {
         } catch (CineCodaException e) {
             log.info(e.getMessage());
         }
+        log.info("Nettoyage de la " + seanceRocky3.getSalle() + salle2.getEtat());
     }
 }
