@@ -49,7 +49,7 @@ public class Cinema {
             }
         }
         if (salleTrouvee == null) {
-            throw new CineCodaException("Erreur : La salle n° " + numeroSalle + " n'appartient pas à ce cinéma " + nom + ". Veuillez réessayer !");
+            throw new CineCodaException("Programmation refusée : le cinéma " + nom + " n'a pas de salle " + numeroSalle);
         }
 
         Seance seance = new Seance(salleTrouvee, support, date, tarifBase);

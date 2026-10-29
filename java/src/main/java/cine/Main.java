@@ -124,5 +124,14 @@ public class Main {
         } catch (CineCodaException e) {
             log.info(e.getMessage());
         }
+
+        log.info("");
+
+        log.info("=== 8. Programmation en Salle 3 ===");
+        try {
+            cineCoda.programmerSeance(3, supportRocky, LocalDate.of(2026, 10, 15), 10.00);
+        } catch (CineCodaException e) {
+            log.info(e.getMessage());
+        }
     }
 }
