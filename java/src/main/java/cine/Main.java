@@ -137,5 +137,9 @@ public class Main {
         log.info("");
 
         log.info("=== 9. Bilan du 15/10/2026 ===");
+        log.info(supportDune.getFilm().getTitre()
+                + ", " + seanceDune.getSalle()
+                + " : " + seanceDune.getBilletsVendus()
+                + " billet(s), recette " + seanceDune.getRecette() + " €");
     }
 }
