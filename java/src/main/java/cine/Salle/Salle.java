@@ -53,12 +53,13 @@ public class Salle {
         this.etat = EtatSalle.NETTOYAGE;
     }
 
-    public void terminerNettoyage() {
+    public String terminerNettoyage() {
         if (this.etat != EtatSalle.NETTOYAGE) {
             throw new CineCodaException("Impossible de terminer le nettoyage : la salle "
                     + numero + " n'est pas en nettoyage (État actuel : " + etat.getLibelle() + ").");
         }
         this.etat = EtatSalle.LIBRE;
+        return "Nettoyage de la Salle " + numero + "terminé";
     }
 
     @Override
