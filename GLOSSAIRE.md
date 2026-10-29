@@ -58,7 +58,7 @@ Titre d'accès à une séance spécifique. Son prix final est calculé par polym
 - **Adulte** : billet pour un spectateur adulte. Le prix final correspond au tarif de base (10€). On paie donc 100% du tarif de base.
 - **Étudiant** : billet pour un spectateur étudiant. Le prix final est généralement réduit par rapport au tarif de base. On bénéficie d'une réduction de 25% sur le tarif de base(tarif de base * 0,75).
 - **Enfant** : billet pour un spectateur enfant. Le prix est fixe à 5€.
-<span style="color:red">**Attention** : Nous sommes en cours de réflexion pour faire un tarif sénior.</span>
+- <span style="color:red">**Attention** : Nous sommes en cours de réflexion pour faire un tarif sénior.</span>
 
 ## <span style="color:green">Comportement et règles métier (par rapport aux entités)</span>
 
@@ -98,3 +98,7 @@ Titre d'accès à une séance spécifique. Son prix final est calculé par polym
 
 
 ### BONUS :
+
+- **Billet senior** : billet pour un spectateur senior (60 ans et plus). Le prix final bénéficie d'une réduction de 30 % sur le tarif de base (tarif de base × 0,70). Aucune classe existante n'a été modifiée : il a suffi de créer une nouvelle sous-classe de `Billet`, ce qui montre le principe du polymorphisme, ou nous avons besoin de ne modifier aucune autre classe existante, pour que ça fonctionne correctement.
+
+- **Livraison par satellite** : support numérique sans clé de protection. Il est lisible uniquement sur projecteur numérique, mais il s'auto-détruit après 3 projections. Au-delà, tout démarrage de séance avec ce support est refusé. Comme pour le billet senior, aucune classe existante n'a été modifiée : il a suffi d'implémenter l'interface `SupportFilm` dans une nouvelle classe `LivraisonSatellite`. Grâce à l'abstraction, on a juste créé de nouvelles classes sans toucher à l'existant.
