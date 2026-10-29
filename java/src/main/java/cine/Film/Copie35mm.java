@@ -44,7 +44,7 @@ public class Copie35mm implements SupportFilm {
             return "une copie 35 mm ne peut pas être lue par un projecteur numérique";
         }
         if (nombreProjections >= 50) {
-            return "La copie 35 mm est usée (" + nombreProjections + " projections effectuees / 50 max).";
+            return "la copie 35 mm de « " + getFilm().getTitre() + " » est usée (" + nombreProjections + " projections)";
         }
         return "Support compatible.";
     }

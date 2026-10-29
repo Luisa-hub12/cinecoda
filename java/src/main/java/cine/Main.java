@@ -119,5 +119,10 @@ public class Main {
             log.info(e.getMessage());
         }
         log.info(salle2.terminerNettoyage());
+        try {
+            seanceRocky3.demarrer();
+        } catch (CineCodaException e) {
+            log.info(e.getMessage());
+        }
     }
 }

@@ -59,7 +59,7 @@ public class Salle {
                     + numero + " n'est pas en nettoyage (État actuel : " + etat.getLibelle() + ").");
         }
         this.etat = EtatSalle.LIBRE;
-        return "Nettoyage de la Salle " + numero + "terminé";
+        return "Nettoyage de la Salle " + numero + " terminé";
     }
 
     @Override
