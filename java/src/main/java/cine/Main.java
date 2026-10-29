@@ -8,6 +8,7 @@ import cine.Film.FichierDCP;
 import cine.Film.Film;
 import cine.Projecteur.ProjecteurArgentique;
 import cine.Projecteur.ProjecteurNumerique;
+import cine.Seance.Seance;
 
 import java.util.logging.Logger;
 
@@ -137,9 +138,15 @@ public class Main {
         log.info("");
 
         log.info("=== 9. Bilan du 15/10/2026 ===");
-        log.info(supportDune.getFilm().getTitre()
-                + ", " + seanceDune.getSalle()
-                + " : " + seanceDune.getBilletsVendus()
-                + " billet(s), recette " + seanceDune.getRecette() + " €");
+        var dateToday = LocalDate.of(2026, 10, 15);
+
+        for (Seance s : cineCoda.getSeancesDuJour(dateToday)) {
+            log.info(String.format(Locale.FRANCE, "%s, Salle %d : %d billet(s), recette %.2f €",
+                    s.getSupport().getFilm().getTitre(),
+                    s.getSalle().getNumero(),
+                    s.getBilletsVendus().size(),
+                    s.getRecette()));
+        }
+        log.info(String.format(Locale.FRANCE, "Recette du jour : %.2f €", cineCoda.getRecetteDuJour(dateToday)));
     }
 }
