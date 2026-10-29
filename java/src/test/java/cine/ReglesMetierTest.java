@@ -41,7 +41,6 @@ class ReglesMetierTest {
         assertThrows(CineCodaException.class, seance::demarrer);
     }
 
-    // --- Règle : copie usée après 50 projections ---
     @Test
     void demarrage_refuse_si_copie_usee() {
         var cinema = new Cinema("Test");
