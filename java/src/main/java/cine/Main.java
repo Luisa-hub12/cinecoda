@@ -143,5 +143,8 @@ public class Main {
         for (Seance s : cineCoda.getSeancesDuJour(dateToday)) {
             log.info(s.toString());
         }
+
+        log.info(String.format(Locale.FRANCE, "Recette du jour : %.2f €",
+                cineCoda.getRecetteDuJour(dateToday)));
     }
 }
