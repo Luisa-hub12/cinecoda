@@ -95,3 +95,6 @@ Titre d'accès à une séance spécifique. Son prix final est calculé par polym
 - **Enregistrer une projection (B11)** :
   - Incrémente le compteur d'usure pour une copie 35 mm.
   - Ne fait rien pour un fichier DCP (pas d'usure physique).
+
+
+### BONUS :
