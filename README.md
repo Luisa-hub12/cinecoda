@@ -183,5 +183,6 @@ Toutes les séances ont lieu le **même jour J**, le **15/10/2026**. Entre paren
 
 1. Ajouter un **billet senior** (−30 %). Combien de classes existantes avez-vous dû modifier ? 
 - 0 j'ai juste du créer une nouvelle classe pour le billet senior.
-2. Ajouter la **livraison par satellite** : un support numérique sans clé, mais **supprimé** automatiquement après 3 projections. Même question.
+2. Ajouter la **livraison par satellite** : un support numérique sans clé, mais **supprimé** automatiquement après 3 projections. Même question. 
+- 0 j'ai juste du créer une nouvelle classe pour la livraison par satellite.
 3. Écrire un **test JUnit** par règle de la section 2 (une règle = au moins un test qui vérifie le refus).

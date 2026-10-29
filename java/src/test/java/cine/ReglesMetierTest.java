@@ -1,9 +1,11 @@
 package cine;
 
 import cine.Billet.BilletPleinTarif;
+import cine.Billet.BilletSenior;
 import cine.Film.Copie35mm;
 import cine.Film.FichierDCP;
 import cine.Film.Film;
+import cine.Film.LivraisonSatellite;
 import cine.Projecteur.ProjecteurArgentique;
 import cine.Projecteur.ProjecteurNumerique;
 
@@ -71,4 +73,19 @@ class ReglesMetierTest {
         assertThrows(CineCodaException.class,
                 () -> cinema.programmerSeance(99, support, DATE, 10.0));
     }
+
+    @Test
+    void billet_senior_applique_reduction_30_pourcent() {
+        var billet = new BilletSenior();
+        assertEquals(7.0, billet.calculerPrix(10.0));
+    }
+    @Test
+    void livraison_satellite_expiree_apres_3_projections() {
+        var support = new LivraisonSatellite(new Film("Dune", 166));
+        support.enregistrerProjection();
+        support.enregistrerProjection();
+        support.enregistrerProjection();
+        assertFalse(support.estLisiblePar(new ProjecteurNumerique("NUM-1"), LocalDate.of(2026, 10, 15)));
+    }
+
 }
